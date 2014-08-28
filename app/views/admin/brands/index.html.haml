@@ -1,0 +1,28 @@
+%legend
+  Производители
+
+  %a.btn{href: new_admin_brand_path, style: 'float: right'} Добавить производителя
+
+%table.table
+  %thead
+    %tr
+      %th
+        Название
+      %th
+        Коллекции
+      %th
+        Товары
+      %th
+        = '...'
+  %tbody
+    - @brands.each do |brand|
+      %tr
+        %td
+          = link_to brand.name, admin_brand_collections_path(brand)
+        %td
+          = brand.collections_count.to_s
+        %td
+          = brand.products_count.to_s
+        %td
+          = link_to 'редактировать', edit_admin_brand_path(brand)
+          = link_to 'удалить', admin_brand_path(brand), method: :delete

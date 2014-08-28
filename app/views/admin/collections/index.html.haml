@@ -1,0 +1,24 @@
+%legend
+  Коллекции
+
+  %a.btn{href: new_admin_brand_collection_path(@brand), style: 'float: right'} Добавить
+
+%table.table
+  %thead
+    %tr
+      %th
+        Название
+      %th
+        Товары
+      %th
+        = '...'
+  %tbody
+    - @collections.each do |collection|
+      %tr
+        %td
+          = link_to collection.name, admin_brand_collection_products_path(@brand, collection)
+        %td
+          = collection.products_count.to_s
+        %td
+          = link_to 'редактировать', edit_admin_brand_collection_path(@brand, collection)
+          = link_to 'удалить', admin_brand_collection_path(@brand, collection), method: :delete

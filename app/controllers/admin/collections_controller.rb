@@ -30,6 +30,7 @@ class Admin::CollectionsController < AdminController
   end
 
   def update
+    @collection = Collection.find params[:id]
 
     if @collection.update_attributes collection_params
       redirect_to admin_brand_collections_path(@brand)
@@ -47,7 +48,7 @@ class Admin::CollectionsController < AdminController
   private
 
   def collection_params
-    params.require(:collection).permit(:name)
+    params.require(:collection).permit!
   end
 
   def find_brand

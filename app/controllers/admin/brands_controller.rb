@@ -43,7 +43,7 @@ class Admin::BrandsController < AdminController
   private
 
   def brand_params
-    params.require(:brand).permit(:name, :logo, :about, :country)
+    params.require(:brand).permit!
   end
 
   def add_breadcrumbs

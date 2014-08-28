@@ -52,5 +52,5 @@ end
 
 gem 'breadcrumbs_on_rails'
 
-gem 'rmagick'
+gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'

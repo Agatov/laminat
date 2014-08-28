@@ -1,5 +1,7 @@
 class Admin::BrandsController < AdminController
 
+  before_filter :add_breadcrumbs
+
   def index
     @brands = Brand.order(:id)
   end
@@ -42,5 +44,19 @@ class Admin::BrandsController < AdminController
 
   def brand_params
     params.require(:brand).permit(:name, :logo, :about, :country)
+  end
+
+  def add_breadcrumbs
+    add_breadcrumb 'Brands', admin_brands_path
+
+    case params[:action]
+
+      when 'index'
+        add_breadcrumb 'Brands List', admin_brands_path
+      when 'new'
+        add_breadcrumb 'New Brand', new_admin_brand_path
+      when 'edit'
+        add_breadcrumb 'Edit Brand', edit_admin_brand_path
+    end
   end
 end

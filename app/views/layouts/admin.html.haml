@@ -11,5 +11,10 @@
 
   %body
     = render partial: 'layouts/admin_topbar'
+
     .container
+
+      %ol.breadcrumb
+        = render_breadcrumbs separator: ' / ', class: :li
+
       = yield

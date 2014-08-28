@@ -47,3 +47,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+
+gem 'breadcrumbs_on_rails'
+
+gem 'rmagick'
+gem 'carrierwave'

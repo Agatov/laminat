@@ -1,14 +1,16 @@
 class Admin::CollectionsController < AdminController
 
   before_filter :find_brand
+  before_filter :add_breadcrumbs
 
   def index
     @collections = @brand.collections
+    add_breadcrumb 'Collections List', admin_brand_collections_path(@brand)
   end
 
   def new
     @collection = @brand.collections.build
-
+    add_breadcrumb 'New Collection', new_admin_brand_collection_path(@brand)
   end
 
   def create
@@ -24,6 +26,7 @@ class Admin::CollectionsController < AdminController
 
   def edit
     @collection = Collection.find params[:id]
+    add_breadcrumb 'Edit Collection', edit_admin_brand_collection_path(@brand, @collection)
   end
 
   def update
@@ -49,5 +52,10 @@ class Admin::CollectionsController < AdminController
 
   def find_brand
     @brand = Brand.find params[:brand_id]
+  end
+
+  def add_breadcrumbs
+    add_breadcrumb 'Brands', admin_brands_path
+    add_breadcrumb @brand.name
   end
 end

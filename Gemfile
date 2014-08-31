@@ -54,3 +54,6 @@ gem 'breadcrumbs_on_rails'
 
 gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
+
+# http://rubydoc.info/gems/country_select/2.0.0/frames
+gem 'country_select'

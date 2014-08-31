@@ -52,11 +52,11 @@ class Admin::BrandsController < AdminController
     case params[:action]
 
       when 'index'
-        add_breadcrumb 'Brands List', admin_brands_path
+        add_breadcrumb I18n.t('admin.breadcrumbs.brands.list'), admin_brands_path
       when 'new'
-        add_breadcrumb 'New Brand', new_admin_brand_path
+        add_breadcrumb I18n.t('admin.breadcrumbs.brands.new'), new_admin_brand_path
       when 'edit'
-        add_breadcrumb 'Edit Brand', edit_admin_brand_path
+        add_breadcrumb I18n.t('admin.breadcrumbs.brands.edit'), edit_admin_brand_path
     end
   end
 end

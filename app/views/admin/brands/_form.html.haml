@@ -1,6 +1,7 @@
 = simple_form_for brand, url: url do |f|
   = f.input :name
-  = f.input :about
   = image_tag brand.logo_url(:thumb) if brand.logo?
   = f.input :logo
+  = f.input :country
+  = f.input :about
   = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

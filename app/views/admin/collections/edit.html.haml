@@ -1,4 +1,6 @@
 %legend
   Редактировать коллекцию
 
-= render partial: 'admin/collections/form', locals: {collection: @collection, url: admin_brand_collection_path(@brand, @collection)}
+.row
+  .col-md-6
+    = render partial: 'admin/collections/form', locals: {collection: @collection, url: admin_brand_collection_path(@brand, @collection)}

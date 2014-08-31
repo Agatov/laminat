@@ -3,4 +3,15 @@
   = f.input :article
   = image_tag product.image_url(:thumb) if product.image?
   = f.input :image
+  = f.input :type
+  = f.input :price
+  = f.input :sale_price
+  = f.input :length
+  = f.input :width
+  = f.input :height
+  = f.input :volume
+  = f.input :lifetime
+  = f.input :country
+  = f.input :about
+
   = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

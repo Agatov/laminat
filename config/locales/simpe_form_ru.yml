@@ -1,0 +1,42 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'Обязательно'
+      mark: '<i style="color: red; font-size: 16px">*</i>'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "При заполнении формы допущены ошибки, проверьте:"
+    labels:
+      brand:
+        name: "Название"
+        logo: "Логотип"
+        country: "Страна производство"
+        about: "Короткое описание"
+        description: "Полное описание"
+      collection:
+        name: "Название"
+        logo: "Логотип"
+        country: "Страна производства"
+        about: "Короткое описание"
+        rank: "Класс ламината"
+        sizes: "Размеры (1111x1111x1111)"
+      product:
+        name: "Название"
+        article: "Артикул"
+        image: "Изображение"
+        price: "Цена"
+        sale_price: "Цена со скидкой"
+        type: "Класс ламината"
+        length: "Длина (мм)"
+        width: "Ширина (мм)"
+        height: "Высота (мм)"
+        volume: "Объем упаковки (м3)"
+        weight: "Вес упаковки (кг)"
+        lifetime: "Срок жизни (лет)"
+        country: "Страна производства"
+        about: "Короткое описание"
+

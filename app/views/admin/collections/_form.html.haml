@@ -1,6 +1,9 @@
 = simple_form_for collection, url: url do |f|
   = f.input :name
-  = f.input :about
   = image_tag collection.logo_url(:thumb) if collection.logo?
   = f.input :logo
+  = f.input :country
+  = f.input :rank
+  = f.input :sizes
+  = f.input :about
   = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

@@ -1,4 +1,6 @@
 %legend
   Редактировать продукт
 
-= render partial: 'admin/products/form', locals: {product: @product, url: admin_brand_collection_product_path(@brand, @collection, @product)}
+.row
+  .col-md-6
+    = render partial: 'admin/products/form', locals: {product: @product, url: admin_brand_collection_product_path(@brand, @collection, @product)}

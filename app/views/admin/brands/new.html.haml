@@ -1,4 +1,6 @@
 %legend
   Добавить производителя
 
-= render partial: 'admin/brands/form', locals: {brand: @brand, url: admin_brands_path}
+.row
+  .col-md-6
+    = render partial: 'admin/brands/form', locals: {brand: @brand, url: admin_brands_path}

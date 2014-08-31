@@ -1,4 +1,6 @@
 %legend
   Добавить продукт
 
-= render partial: 'admin/products/form', locals: {product: @product, url: admin_brand_collection_products_path(@brand, @collection)}
+.row
+  .col-md-6
+    = render partial: 'admin/products/form', locals: {product: @product, url: admin_brand_collection_products_path(@brand, @collection)}

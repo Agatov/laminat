@@ -6,12 +6,14 @@ class Admin::ProductsController < AdminController
 
   def index
     @products = @collection.products
-    add_breadcrumb 'Products List', admin_brand_collection_products_path(@brand, @collection)
+    add_breadcrumb @collection.name
+    add_breadcrumb I18n.t('admin.breadcrumbs.products.list'), admin_brand_collection_products_path(@brand, @collection)
   end
 
   def new
     @product = Product.new(brand: @brand, collection: @collection)
-    add_breadcrumb 'New Product', new_admin_brand_collection_product_path(@brand, @collection)
+    add_breadcrumb @collection.name, admin_brand_collection_products_path(@brand, @collection)
+    add_breadcrumb I18n.t('admin.breadcrumbs.products.new'), new_admin_brand_collection_product_path(@brand, @collection)
   end
 
   def create
@@ -28,7 +30,8 @@ class Admin::ProductsController < AdminController
 
   def edit
     @product = Product.find params[:id]
-    add_breadcrumb 'Products List', edit_admin_brand_collection_product_path(@brand, @collection, @product)
+    add_breadcrumb @collection.name, admin_brand_collection_products_path(@brand, @collection)
+    add_breadcrumb I18n.t('admin.breadcrumbs.products.edit'), edit_admin_brand_collection_product_path(@brand, @collection, @product)
   end
 
   def update
@@ -63,8 +66,7 @@ class Admin::ProductsController < AdminController
 
   def add_breadcrumbs
     add_breadcrumb 'Brands', admin_brands_path
-    add_breadcrumb @brand.name, admin_brand_path(@brand)
-    add_breadcrumb @collection.name, admin_brand_collection_path(@brand, @collection)
+    add_breadcrumb @brand.name, admin_brand_collections_path(@brand)
   end
 
 end

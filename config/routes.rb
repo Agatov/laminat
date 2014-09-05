@@ -5,7 +5,9 @@ Laminat::Application.routes.draw do
       resources :collections do
         resources :products
       end
-   	end
+    end
+
+    resources :textures
   end
 
 end

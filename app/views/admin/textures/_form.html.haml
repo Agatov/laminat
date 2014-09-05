@@ -1,0 +1,6 @@
+= simple_form_for texture, url: url do |f|
+  = f.input :name
+  = image_tag texture.image_url(:thumb) if texture.image?
+  = f.input :image
+
+  = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

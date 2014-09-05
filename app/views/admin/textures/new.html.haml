@@ -1,0 +1,6 @@
+%legend
+  Добавить текстуру
+
+.row
+  .col-md-6
+    = render partial: 'admin/textures/form', locals: {texture: @texture, url: admin_textures_path(@texture)}

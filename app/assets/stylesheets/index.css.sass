@@ -1,0 +1,49 @@
+@import "settings"
+
+@font-face
+  font-family: 'HelveticaNeue-Light'
+  src: url('/assets/HelveticaNeueCyr-Light.otf') format("opentype")
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'HelveticaNeue-Regular'
+  src: url('/assets/HelveticaNeueCyr-Roman.otf') format("opentype")
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'HelveticaNeue-Medium'
+  src: url('/assets/HelveticaNeueCyr-Medium.otf') format("opentype")
+  font-weight: normal
+  font-style: normal
+
+body
+  padding: 0px
+  margin: 0px
+  font-family: 'HelveticaNeue-Roman', 'Helvetica', 'Arial', sans-serif
+  background: #fff
+  min-width: 1024px
+
+.clearfix
+  &:after
+    clear: both
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+.relative
+  position: relative
+
+.inheritance-height
+  height: 100%
+
+.wrapper
+  width: 940px
+  margin: 0px auto
+
+
+a
+  color: $blue_color

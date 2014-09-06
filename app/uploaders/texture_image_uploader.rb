@@ -1,4 +1,4 @@
-class ProductImageUploader < CarrierWave::Uploader::Base
+class TextureImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :file
@@ -14,11 +14,11 @@ class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [220, 100]
+    process :resize_to_fill => [120, 180]
   end
 
   version :mini do
-    process :resize_to_fill => [80, 30]
+    process :resize_to_fill => [200, 300]
   end
 
   def extension_white_list

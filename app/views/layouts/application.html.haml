@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', :media => 'all'
+    = javascript_include_tag 'application'
+
+
+    %title
+      Ламинат
+
+  %body
+
+    .wrapper
+
+      .topbar
+        .logo
+          Ламинат & CO
+        .phone
+          (495) 720 20 20
+          .small
+            ежедневно с 9:00 до 21:00
+
+      %ul.navbar
+        %li.active
+          %a{href: '#'} Выбор по параметрам
+        %li
+          %a{href: '#'} Производители
+        %li
+          %a{href: '#'} По артикулу
+        %li.cart-widget
+          В вашей корзине
+          %br
+          %span.bolder 5 товаров на сумму
+          27 280₽
+
+      .breadcrumbs
+        %a{href: '#'} Главная
+        = '/'
+        Подбор ламината по параметрам
+
+      .page-title
+        Подбор ламината по параметрам
+
+      = yield

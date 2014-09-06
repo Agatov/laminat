@@ -5,4 +5,9 @@ class Product < ActiveRecord::Base
   belongs_to :texture
 
   mount_uploader :image, ProductImageUploader
+
+
+  def full_name
+    "#{brand.name} #{collection.name} #{name}"
+  end
 end

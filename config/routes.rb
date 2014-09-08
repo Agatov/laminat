@@ -14,9 +14,14 @@ Laminat::Application.routes.draw do
   end
 
   resources :brands, only: [:index, :show] do
-    resources :collections, only: [:index, :show]
+    get :products, on: :member
+    resources :collections, only: [:index, :show] do
+      get :products, on: :member
+    end
   end
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    get :by_parameters, on: :collection
+  end
 
 end

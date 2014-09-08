@@ -1,2 +1,118 @@
-%legend
-  = @product.name
+#product
+  .widget-and-image.clearfix
+    .image
+      = image_tag @product.image_url(:preview)
+    .widget
+      .left
+        .price.clearfix
+          .label
+            Стоимость (м2):
+          .value
+            = "#{@product.price.to_s}₽"
+
+        .price.clearfix
+          .label
+            Стоимость (уп):
+          .value
+            = "#{@product.price.to_s}₽"
+
+
+        .price.clearfix
+          .label
+            Итого:
+          .value.orange
+            29 990₽
+
+        .annotation
+          Вы можете заказать образец
+          этого ламината. Наш менеджер
+          доставит вам его домой на
+          следующий день.
+
+      .right
+        .fields
+          %input{type: :text, name: :square, value: '29,2'}
+          &nbsp; м2 =
+          %input{type: :text, name: :square, value: '8'}
+          &nbsp; уп
+
+        .buttons
+          .button
+            Положить в корзину
+
+          .button
+            Заказать пробник
+
+
+  .tables.clearfix
+    .table
+      %table
+        %tr
+          %td
+            Артикул:
+          %td
+            ABV2961
+
+        %tr
+          %td
+            Размер:
+          %td
+            2283x194x14
+
+        %tr
+          %td
+            В упаковке (м2):
+          %td
+            2.62
+
+        %tr
+          %td
+            В упаковке (шт):
+          %td
+            6
+
+
+        %tr
+          %td
+            Вес упаковки (кг):
+          %td
+            25
+
+    .table
+      %table
+        %tr
+          %td
+            Производитель:
+          %td
+            = @product.brand.name
+
+        %tr
+          %td
+            Страна производства:
+          %td
+            Сербия
+
+        %tr
+          %td
+            Замок:
+          %td
+            AVERLOC
+
+        %tr
+          %td
+            Срок службы:
+          %td
+            30 лет
+
+
+        %tr
+          %td
+            Толщина доски (мм):
+          %td
+            14
+
+        -#%tr
+          %td
+            Размер
+          %td
+            2283x194x14

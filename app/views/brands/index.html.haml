@@ -1,6 +1,16 @@
+%ul.brands
+  - @brands.each do |brand|
+    %li.clearfix
+      .logo
+        = image_tag brand.logo_url(:thumb)
+      .content
+        .top-row
+          = link_to brand.name, brand_collections_path(brand)
+          Германия
 
+        .about
+          = brand.about
 
-%ul.thumbnail
-  - @products.each do |product|
-    %li
-      = link_to product.name, product_path(product)
+        .buttons.clearfix
+          = link_to 'Колекций: 8', brand_collections_path(brand), class: :button
+          = link_to 'Товаров: 144', products_brand_path(brand), class: :button

@@ -4,4 +4,8 @@
  *= require index
  *= require top
  *= require products
+ *= require product
+ *= require brands
+ *= require collections
+ *= require filter
  */

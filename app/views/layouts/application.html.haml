@@ -22,10 +22,13 @@
             ежедневно с 9:00 до 21:00
 
       %ul.navbar
-        %li.active
-          %a{href: '#'} Выбор по параметрам
-        %li
-          %a{href: '#'} Производители
+
+
+
+        %li{class: (params[:action] == 'by_parameters') ? 'active' : ''}
+          = link_to 'Выбор по параметрам', by_parameters_products_path
+        %li{class: (params[:controller] == 'brands' or params[:controller] == 'collections') ? 'active' : ''}
+          = link_to 'Производители', brands_path
         %li
           %a{href: '#'} По артикулу
         %li.cart-widget
@@ -41,5 +44,68 @@
 
       .page-title
         Подбор ламината по параметрам
+
+      #filter
+        .left
+          .filter-widget
+            .label
+              Цена (рублей за м2):
+            .widget-body.clearfix
+              .section.active любая
+              .section до 500
+              .section.two-rows
+                от 500
+                %br
+                до 1 000
+              .section.two-rows
+                от 1 000
+                %br
+                до 2 000
+              .section.two-rows
+                свыше
+                %br
+                2 000
+
+          .dekor-picker{style: 'margin-top: 50px;'}
+            .label
+              Декор:
+            .widget-body.clearfix
+              .preview не выбрано
+              .about-decor
+                Декор ламината, это изображение
+                породы дерева или другого материала,
+                отпечатанного на верхнем декоративном
+                слое.
+
+                %br
+                %br
+
+                Нажмите на квадрат слева, чтобы
+                выбрать декор.
+
+        .right
+          .filter-widget
+            .label
+              Класс ламината:
+            .widget-body.clearfix
+              .section.active любой
+              .section 31
+              .section 32
+              .section 33
+              .section 34
+
+          .color-picker{style: 'margin-top: 50px;'}
+            .label
+              Выбор цвета
+
+            %select{name: :color}
+              %option{value: 'ololo'} Красный
+              %option{value: 'ololo'} Красный
+              %option{value: 'ololo'} Красный
+              %option{value: 'ololo'} Красный
+              %option{value: 'ololo'} Красный
+
+            .filter-button
+              Применить параметры
 
       = yield

@@ -1,3 +1,78 @@
+@import 'settings'
+
 .brands
+  margin-top: 25px
 
   li
+    padding: 25px 0px
+    background: url('/assets/products_separator.png') no-repeat
+    background-position: bottom
+
+    &:last-child
+      background: none
+
+    .logo
+      float: left
+      margin-right: 20px
+      width: 220px
+
+      img
+        width: 220px
+
+    .content
+      float: left
+      width: 700px
+
+      .top-row
+        font-family: 'HelveticaNeue-Light'
+        font-size: 14px
+        color: $soft_font_color
+
+        a
+          font-size: 18px
+          color: $blue_color
+          font-family: 'HelveticaNeue-Regular'
+          text-decoration: underline
+
+
+      .about
+        padding: 20px 0
+        font-family: 'HelveticaNeue-Light'
+        font-size: 16px
+        font-color: $font_color
+        line-height: 1.3
+
+      .buttons
+        width: 100%
+        height: 50px
+
+
+        .button
+          float: left
+          display: block
+          margin-right: 20px
+          width: 140px
+          height: 50px
+          line-height: 52px
+          text-align: center
+          background: #fff
+          border: 1px solid $blue_color
+          border-radius: 8px
+
+          color: $blue_color
+          font-family: 'HelveticaNeue-Light'
+
+          cursor: pointer
+
+          &:hover
+            background: $blue_color
+            color: #fff
+
+
+
+    .boofer
+      height: 50px
+      background: url('/assets/products_separator.png') no-repeat
+      background-position: center
+
+

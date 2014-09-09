@@ -31,6 +31,7 @@ ru:
         price: "Цена"
         sale_price: "Цена со скидкой"
         type: "Класс ламината"
+        meters_per_pack: "м2 в упаковке"
         length: "Длина (мм)"
         width: "Ширина (мм)"
         height: "Высота (мм)"

@@ -2,16 +2,27 @@ $ ->
 
 
   $('.cart-table td .ololo').on 'change', ->
-    console.log $(@).val()
+
+    tr = $(@).parents('tr')
+    cart_product_id = tr.attr('cart_product_id')
+
 
     request = $.ajax({
       type: 'PUT',
-      url: '/cart',
+      url: "/cart_products/#{cart_product_id}.json",
       data: {
-        product_id: $(@).attr('product_id'),
-        count: $(@).val()
+        'cart_product[count]': $(@).val()
       }
     })
 
-    request.done ->
-      console.log 'olololo'
+
+
+    request.done (data) ->
+      cart_product_sum = tr.find('.cart-product-sum .value number')
+      cart_product_sum_old = parseInt cart_product_sum.text()
+      cart_product_sum.text(parseInt(data.price))
+
+      total_price_value = parseInt $('.total-price .value number').text()
+      total_price_value  = total_price_value - cart_product_sum_old + parseInt(data.price)
+      $('.total-price .value number').text total_price_value
+

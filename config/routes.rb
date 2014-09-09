@@ -29,4 +29,8 @@ Laminat::Application.routes.draw do
     get :remove, on: :collection
   end
 
+  resources :cart_products do
+    get :clear, on: :collection
+  end
+
 end

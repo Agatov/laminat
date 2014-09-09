@@ -14,6 +14,7 @@ class CartController < ApplicationController
     @product = Product.find params[:product_id]
 
 
+
     @cart = get_cart
     @cart.add_product @product, params[:count]
     set_cart @cart

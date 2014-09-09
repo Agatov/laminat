@@ -1,7 +1,10 @@
-%a{href: cart_path}
+%a{href: cart_products_path}
   В вашей корзине
   %br
   %span.bolder
-    = get_cart.count.to_s
+    %number#cart-products-count
+      = session[:cart_products_count]
     товаров на сумму
-    27 280₽
+    %number#cart-products-sum
+      = session[:cart_products_sum]
+    ₽

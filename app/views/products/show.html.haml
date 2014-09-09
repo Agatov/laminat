@@ -14,20 +14,26 @@
           .label
             Стоимость (м2):
           .value
-            = "#{@product.price.to_s}₽"
+            %number
+              = "#{@product.meter_price.to_s}"
+            ₽
 
         .price.clearfix
           .label
             Стоимость (уп):
           .value
-            = "#{@product.price.to_s}₽"
+            %number#pack-price
+              = "#{@product.price}"
+            ₽
 
 
         .price.clearfix
           .label
             Итого:
           .value.orange
-            29 990₽
+            %number#total-price
+              0
+            ₽
 
         .annotation
           Вы можете заказать образец
@@ -36,19 +42,20 @@
           следующий день.
 
       .right
-        %form{action: cart_products_path, method: :post}
-          .fields
-            %input{type: :text, name: 'cart_product[square]', value: '29,2'}
+        %form.meters-packs-form{action: cart_products_path, method: :post}
+          .fields{meters_per_pack: @product.meters_per_pack.to_s}
+            %input.meters{type: :text, name: 'cart_product[square]', value: '0'}
             &nbsp; м2 =
-            %input{type: :text, name: 'cart_product[count]', value: '8'}
+            %input.packs{type: :text, name: 'cart_product[count]', value: '0'}
             &nbsp; уп
-            %input{type: :hidden, name: 'cart_product[product_id]', value: @product.id.to_s}
+            %input#product-id{type: :hidden, name: 'cart_product[product_id]', value: @product.id.to_s}
 
           .buttons
-            %input.button{type: :submit, value: 'Положить в корзину'}
+            .button#add-to-cart{type: :submit}
+              Положить в корзину
 
-          -#.button
-            Заказать пробник
+            .button
+              Заказать пробник
 
 
   .tables.clearfix

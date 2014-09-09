@@ -11,7 +11,16 @@ class Product < ActiveRecord::Base
     "#{brand.name} #{collection.name} #{name}"
   end
 
+  def meter_price
+    if meters_per_pack and price
+      (price / meters_per_pack).ceil
+    else
+      return 0
+    end
+  end
+
   def calculate_price(count)
     price * count
   end
+
 end

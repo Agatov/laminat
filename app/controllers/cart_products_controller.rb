@@ -18,30 +18,47 @@ class CartProductsController < ApplicationController
 
     @cart_product.save
 
-    redirect_to :back
+    recalculate_cart_sessions
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.json {
+        render json: {
+          count: session[:cart_products_count],
+          sum: session[:cart_products_sum]
+        }
+      }
+    end
+
+
   end
 
   def update
     @cart_product = CartProduct.find params[:id]
     @cart_product.update_attributes cart_product_params
 
+    recalculate_cart_session
+
     respond_to do |format|
       format.html {redirect_to :back}
       format.json {
         render json: {
-          price: @cart_product.price
+          price: @cart_product.price,
+          count: session[:cart_products_count],
+          sum: session[:cart_products_sum]
         }
       }
     end
   end
 
   def clear
-
+    recalculate_cart_session
   end
 
   def destroy
     @cart_product = CartProduct.find params[:id]
     @cart_product.destroy
+    recalculate_cart_session
     redirect_to :back
   end
 
@@ -49,5 +66,11 @@ class CartProductsController < ApplicationController
 
   def cart_product_params
     params.require(:cart_product).permit(:product_id, :count)
+  end
+
+  def recalculate_cart_session
+    @cart_products = CartProduct.by_session_id(session_id)
+    session[:cart_products_count] = @cart_products.count
+    session[:cart_products_sum] = @cart_products.map {|cp| cp.price }.sum
   end
 end

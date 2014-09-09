@@ -7,5 +7,6 @@
  *= require product
  *= require brands
  *= require collections
+ *= require cart
  *= require filter
  */

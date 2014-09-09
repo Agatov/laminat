@@ -55,3 +55,5 @@ gem 'carrierwave'
 
 # http://rubydoc.info/gems/country_select/2.0.0/frames
 gem 'country_select'
+
+gem 'meta-tags'

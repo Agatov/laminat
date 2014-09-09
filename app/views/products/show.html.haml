@@ -1,3 +1,9 @@
+.page-title
+  Ламинат
+  = @product.brand.name
+  = @product.collection.name
+  = @product.name
+
 #product
   .widget-and-image.clearfix
     .image
@@ -30,17 +36,18 @@
           следующий день.
 
       .right
-        .fields
-          %input{type: :text, name: :square, value: '29,2'}
-          &nbsp; м2 =
-          %input{type: :text, name: :square, value: '8'}
-          &nbsp; уп
+        %form{action: cart_path, method: :post}
+          .fields
+            %input{type: :text, name: :square, value: '29,2'}
+            &nbsp; м2 =
+            %input{type: :text, name: :count, value: '8'}
+            &nbsp; уп
+            %input{type: :hidden, name: :product_id, value: @product.id.to_s}
 
-        .buttons
-          .button
-            Положить в корзину
+          .buttons
+            %input.button{type: :submit, value: 'Положить в корзину'}
 
-          .button
+          -#.button
             Заказать пробник
 
 

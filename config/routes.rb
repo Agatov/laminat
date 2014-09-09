@@ -24,4 +24,9 @@ Laminat::Application.routes.draw do
     get :by_parameters, on: :collection
   end
 
+  resource :cart, only: [:show, :create, :update], controller: 'cart' do
+    get :clear, on: :collection
+    get :remove, on: :collection
+  end
+
 end

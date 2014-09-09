@@ -10,4 +10,8 @@ class Product < ActiveRecord::Base
   def full_name
     "#{brand.name} #{collection.name} #{name}"
   end
+
+  def calculate_price(count)
+    price * count
+  end
 end

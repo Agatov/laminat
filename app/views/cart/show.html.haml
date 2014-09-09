@@ -1,0 +1,43 @@
+.page-title
+  Оформление заказа
+
+#cart
+
+  %table.cart-table
+    - @products.each do |product|
+      %tr
+        %td
+          = image_tag product.image_url(:thumb)
+        %td
+          = link_to product.full_name, product_path(product)
+        %td
+          - count = get_cart.find_product(product)[:count]
+          %input.ololo{type: :text, value: count.to_s}
+          &nbsp; уп
+          %br
+          48,6 м2
+        %td
+          Стоимость (уп):
+          .value
+            = "#{product.price.to_s}₽"
+
+        %td
+          Сумма
+          .value
+            = "#{(product.calculate_price(count)).to_s}₽"
+
+        %td
+          %a.remove-cart-row-icon{href: remove_cart_path(product_id: product.id)}
+
+
+  .bottom
+    .total-price
+      Итого:
+      %span.value
+        = "#{get_cart.summ.to_s}₽"
+
+
+    %a.clear-cart-button{href: clear_cart_path}
+      Очистить корзину
+    .make-order-button
+      Оформить заказ

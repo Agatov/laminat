@@ -15,3 +15,20 @@ $ ->
     $(@).addClass('active')
 
     $('input[name=type]').val parseInt $(@).attr('type')
+
+
+  $('#texture-widget').on 'click', ->
+    $('.modal-overlay').show()
+    $('#textures-modal').show()
+
+
+  $('.textures .texture').on 'click', ->
+    texture_id = $(@).attr('texture_id')
+    texture_image = $(@).attr('image')
+
+    $("#texture-widget img").attr('src', texture_image).show()
+
+    $('#textures-modal').hide()
+    $('.modal-overlay').hide()
+
+    $('input[name=texture_id]').val parseInt texture_id

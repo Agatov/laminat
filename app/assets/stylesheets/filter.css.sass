@@ -91,6 +91,12 @@
 
       cursor: pointer
 
+      img
+        display: none
+        width: 100px
+        height: 100px
+
+
     .about-decor
       float: left
       width: 230px
@@ -126,4 +132,55 @@
   cursor: pointer
   border: none
 
+
+#textures-modal
+  display: none
+  z-index: 999
+  position: fixed
+  top: 50%
+  left: 50%
+
+  width: 900px
+
+  margin-top: -200px
+  margin-left: -470px
+
+
+
+  background: #fff
+
+  .title
+    padding: 20px
+    font-family: 'HelveticaNeue-Light'
+    font-size: 16px
+    color: $font_color
+
+
+  .textures
+    padding: 20px
+
+    .texture
+      float: left
+      margin-right: 20px
+      margin-bottom: 20px
+      padding: 10px
+      background: $gray_bg_color
+      cursor: pointer
+
+      &:hover
+        background: $blue_color
+        .name
+          color: #fff
+
+      &:nth-child(4n)
+        margin-right: 0px
+      img
+        width: 180px
+        height: 60px
+
+      .name
+        padding-top: 10px
+        font-family: 'HelveticaNeue-Light'
+        font-size: 16px
+        color: $font_color
 

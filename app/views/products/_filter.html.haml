@@ -4,7 +4,7 @@
       .label
         Цена (рублей за м2):
       .widget-body.clearfix#price-widget
-        .section{min: 0, max: 9999, class: (params[:max_price] == '9999' or !params[:max_price]) ? 'active' : ''} любая
+        .section{min: 0, max: 9999, class: (params[:max_price] == '9999' or !params[:max_price] or params[:max_price] == '') ? 'active' : ''} любая
         .section{min: 0, max: 500, class: params[:max_price] == '500' ? 'active' : ''} до 500
         .section.two-rows{min: 500, max: 1000, class: params[:max_price] == '1000' ? 'active' : ''}
           от 500
@@ -23,7 +23,9 @@
       .label
         Декор:
       .widget-body.clearfix
-        .preview не выбрано
+        .preview#texture-widget
+          %img
+
         .about-decor
           Декор ламината, это изображение
           породы дерева или другого материала,
@@ -41,11 +43,11 @@
       .label
         Класс ламината:
       .widget-body.clearfix
-        .section{class: (params[:type] == '' or !params[:type]) ? 'active' : ''} любой
-        .section{class: params[:type] == '31' ? 'active' : ''} 31
-        .section{class: params[:type] == '32' ? 'active' : ''} 32
-        .section{class: params[:type] == '33' ? 'active' : ''} 33
-        .section{class: params[:type] == '34' ? 'active' : ''} 34
+        .section{class: (params[:type] == '' or !params[:type]) ? 'active' : '', type: ''} любой
+        .section{class: params[:type] == '31' ? 'active' : '', type: 31} 31
+        .section{class: params[:type] == '32' ? 'active' : '', type: 32} 32
+        .section{class: params[:type] == '33' ? 'active' : '', type: 33} 33
+        .section{class: params[:type] == '34' ? 'active' : '', type: 34} 34
 
     .color-picker{style: 'margin-top: 50px;'}
       .label
@@ -63,7 +65,23 @@
         %input{type: :hidden, name: :min_price, value: params[:min_price]}
         %input{type: :hidden, name: :max_price, value: params[:max_price]}
         %input{type: :hidden, name: :type, value: params[:type]}
-        %input{type: :hidden, name: :texture, value: params[:texture]}
-        %input{type: :hidden, name: :color, value: params[:color]}
+        %input{type: :hidden, name: :texture_id, value: params[:texture_id]}
+        %input{type: :hidden, name: :color_id, value: params[:color_id]}
 
         %input.filter-button{type: :submit, value: 'Применить параметры'}
+
+
+
+
+#textures-modal
+
+  .title
+    Выберите текстуру из списка ниже
+  .textures
+    - texture = Texture.first
+
+    - 12.times do
+      .texture{texture_id: texture.id, image: texture.image_url(:preview)}
+        = image_tag texture.image_url(:thumb)
+        .name
+          = texture.name

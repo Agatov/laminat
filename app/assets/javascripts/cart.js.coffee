@@ -1,5 +1,8 @@
 $ ->
 
+  $('.make-order-button').on 'click', ->
+    $('.modal-overlay').show()
+    $('#cart-modal').show()
 
   $('.cart-table td .ololo').on 'change', ->
 

@@ -50,3 +50,21 @@
       Очистить корзину
     .make-order-button
       Оформить заказ
+
+
+
+#cart-modal
+  .title
+    Менеджер перезвонит вам через 15 минут
+
+
+  .modal-thank
+    Ваш заказ принят
+
+  .form
+    .left
+      %input{type: :text, name: :name, placeholder: 'Введите ваше имя'}
+      %input{type: :text, name: :phone, placeholder: 'Введите ваш телефон'}
+    .right
+      %textarea{name: :content, placeholder: 'Напишите адрес доставки и удобное для вас время'}
+      .button#send-form Отправить

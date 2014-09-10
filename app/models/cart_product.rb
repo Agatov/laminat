@@ -15,4 +15,12 @@ class CartProduct < ActiveRecord::Base
     calculate_price
     save
   end
+
+  def generate_order_product(order)
+    order.order_products.build(
+        product_id: product_id,
+        count: count,
+        sum: price
+    )
+  end
 end

@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :get_cart
 
+  def recalculate_cart_session
+    @cart_products = CartProduct.by_session_id(session_id)
+    session[:cart_products_count] = @cart_products.count
+    session[:cart_products_sum] = @cart_products.map {|cp| cp.price }.sum
+  end
+
 
   private
 

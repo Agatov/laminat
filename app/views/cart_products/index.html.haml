@@ -1,6 +1,15 @@
 .page-title
   Оформление заказа
 
+
+.cart-navigation.clearfix
+  %a.button.active{href: cart_products_path}
+    Товаров: 2
+
+  %a.button{href: deferred_cart_products_path}
+    Отложенные образцы: 6
+
+
 #cart
 
   %table.cart-table

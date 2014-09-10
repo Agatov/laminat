@@ -6,6 +6,10 @@ class CartProductsController < ApplicationController
     @cart_products = CartProduct.by_session_id(session_id)
   end
 
+  def deferred
+    @cart_products = CartProduct.by_session_id(session_id).deferred
+  end
+
   def create
     @cart_product = CartProduct.find_by_session_id_and_product_id(session_id, params[:cart_product][:product_id])
 
@@ -66,11 +70,5 @@ class CartProductsController < ApplicationController
 
   def cart_product_params
     params.require(:cart_product).permit(:product_id, :count)
-  end
-
-  def recalculate_cart_session
-    @cart_products = CartProduct.by_session_id(session_id)
-    session[:cart_products_count] = @cart_products.count
-    session[:cart_products_sum] = @cart_products.map {|cp| cp.price }.sum
   end
 end

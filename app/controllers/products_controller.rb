@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
                   .with_price_greater_than(params[:min_price])
                   .with_price_less_than(params[:max_price])
                   .with_type(params[:type])
+                  .with_texture_id(params[:texture_id])
+                  .with_color_id(params[:color_id])
                   .order(:id)
 
 

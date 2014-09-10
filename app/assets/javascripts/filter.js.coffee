@@ -1,6 +1,9 @@
 $ ->
 
+  console.log 'ololo'
+
   $('#price-widget .section').on 'click', ->
+
     $('#price-widget .section').removeClass('active')
     $(@).addClass('active')
 
@@ -26,9 +29,17 @@ $ ->
     texture_id = $(@).attr('texture_id')
     texture_image = $(@).attr('image')
 
-    $("#texture-widget img").attr('src', texture_image).show()
-
     $('#textures-modal').hide()
     $('.modal-overlay').hide()
 
-    $('input[name=texture_id]').val parseInt texture_id
+    if texture_id == 'empty'
+      $('#texture-widget img').attr('src', '').hide()
+      $('input[name=texture_id]').val ''
+
+    else
+      $("#texture-widget img").attr('src', texture_image).show()
+      $('input[name=texture_id]').val parseInt texture_id
+
+
+  $('#color-picker').on 'change', ->
+    $('input[name=color_id]').val $(@).val()

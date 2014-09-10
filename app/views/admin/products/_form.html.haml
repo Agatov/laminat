@@ -3,6 +3,8 @@
   = f.input :article
   = image_tag product.image_url(:thumb) if product.image?
   = f.input :image
+  = f.association :texture
+  = f.association :color
   = f.input :product_type
   = f.input :price
   = f.input :sale_price

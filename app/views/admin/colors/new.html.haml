@@ -1,0 +1,6 @@
+%legend
+  Добавить цвет
+
+.row
+  .col-md-6
+    = render partial: 'admin/colors/form', locals: {color: @color, url: admin_colors_path}

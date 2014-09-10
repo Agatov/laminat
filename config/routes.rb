@@ -11,6 +11,7 @@ Laminat::Application.routes.draw do
     end
 
     resources :textures
+    resources :colors
   end
 
   resources :brands, only: [:index, :show] do

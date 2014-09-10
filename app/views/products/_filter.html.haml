@@ -24,7 +24,10 @@
         Декор:
       .widget-body.clearfix
         .preview#texture-widget
-          %img
+          - if params[:texture_id] and params[:texture_id] != ''
+            %img{src: Texture.find(params[:texture_id]).image_url(:preview), style: 'display: inline-block;'}
+          - else
+            %img
 
         .about-decor
           Декор ламината, это изображение
@@ -51,15 +54,12 @@
 
     .color-picker{style: 'margin-top: 50px;'}
       .label
-        Выбор цвета
+        Выбор оттенка
 
-      %select{name: :color}
-        %option{value: 'ololo'} Красный
-        %option{value: 'ololo'} Красный
-        %option{value: 'ololo'} Красный
-        %option{value: 'ololo'} Красный
-        %option{value: 'ololo'} Красный
-
+      %select#color-picker{name: :color}
+        - Color.order(:id).each do |color|
+          %option{value: color.id.to_s, selected: params[:color_id] == color.id.to_s}
+            = color.name
 
       %form{action: '/products/by_parameters'}
         %input{type: :hidden, name: :min_price, value: params[:min_price]}
@@ -80,7 +80,10 @@
   .textures
     - texture = Texture.first
 
-    - 12.times do
+    .texture{texture_id: 'empty'}
+      .empty не выбрано
+
+    - 11.times do
       .texture{texture_id: texture.id, image: texture.image_url(:preview)}
         = image_tag texture.image_url(:thumb)
         .name

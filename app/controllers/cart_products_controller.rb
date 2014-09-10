@@ -18,7 +18,7 @@ class CartProductsController < ApplicationController
 
     @cart_product.save
 
-    recalculate_cart_sessions
+    recalculate_cart_session
 
     respond_to do |format|
       format.html {redirect_to :back}

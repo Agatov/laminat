@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
   end
 
   def by_parameters
-    @products = Product.order(:id)
+    @products = Product
+                  .with_price_greater_than(params[:min_price])
+                  .with_price_less_than(params[:max_price])
+                  .with_type(params[:type])
+                  .order(:id)
+
+
     add_breadcrumb 'Выбор ламината по параметрам'
   end
 

@@ -3,18 +3,18 @@
     .filter-widget
       .label
         Цена (рублей за м2):
-      .widget-body.clearfix
-        .section.active любая
-        .section до 500
-        .section.two-rows
+      .widget-body.clearfix#price-widget
+        .section{min: 0, max: 9999, class: (params[:max_price] == '9999' or !params[:max_price]) ? 'active' : ''} любая
+        .section{min: 0, max: 500, class: params[:max_price] == '500' ? 'active' : ''} до 500
+        .section.two-rows{min: 500, max: 1000, class: params[:max_price] == '1000' ? 'active' : ''}
           от 500
           %br
           до 1 000
-        .section.two-rows
+        .section.two-rows{min: 1000, max: 2000, class: params[:max_price] == '2000' ? 'active' : ''}
           от 1 000
           %br
           до 2 000
-        .section.two-rows
+        .section.two-rows{min: 2000, max: 99999, class: params[:max_price] == '99999' ? 'active' : ''}
           свыше
           %br
           2 000
@@ -37,15 +37,15 @@
           выбрать декор.
 
   .right
-    .filter-widget
+    .filter-widget#type-widget
       .label
         Класс ламината:
       .widget-body.clearfix
-        .section.active любой
-        .section 31
-        .section 32
-        .section 33
-        .section 34
+        .section{class: (params[:type] == '' or !params[:type]) ? 'active' : ''} любой
+        .section{class: params[:type] == '31' ? 'active' : ''} 31
+        .section{class: params[:type] == '32' ? 'active' : ''} 32
+        .section{class: params[:type] == '33' ? 'active' : ''} 33
+        .section{class: params[:type] == '34' ? 'active' : ''} 34
 
     .color-picker{style: 'margin-top: 50px;'}
       .label
@@ -58,5 +58,12 @@
         %option{value: 'ololo'} Красный
         %option{value: 'ololo'} Красный
 
-      .filter-button
-        Применить параметры
+
+      %form{action: '/products/by_parameters'}
+        %input{type: :hidden, name: :min_price, value: params[:min_price]}
+        %input{type: :hidden, name: :max_price, value: params[:max_price]}
+        %input{type: :hidden, name: :type, value: params[:type]}
+        %input{type: :hidden, name: :texture, value: params[:texture]}
+        %input{type: :hidden, name: :color, value: params[:color]}
+
+        %input.filter-button{type: :submit, value: 'Применить параметры'}

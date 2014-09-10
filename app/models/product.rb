@@ -6,6 +6,11 @@ class Product < ActiveRecord::Base
 
   mount_uploader :image, ProductImageUploader
 
+  scope :with_price_greater_than, lambda {|price| where('price >= ?', price) unless (price.nil? or price == '')}
+  scope :with_price_less_than, lambda {|price| where('price <= ?', price) unless (price.nil? or price == '')}
+  scope :with_type, lambda {|type| where(product_type: type) unless (type.nil? or type == '')}
+
+
 
   def full_name
     "#{brand.name} #{collection.name} #{name}"

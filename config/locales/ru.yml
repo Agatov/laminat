@@ -13,3 +13,10 @@ ru:
         list: "Список товаров"
         new: "Добавить товар"
         edit: "Редактировать товар"
+
+  app:
+    breadcrumbs:
+      main_page: 'Главная страница'
+      brands: 'Производители'
+      collections_list: "Список коллекций %{brand_name}"
+      collection_name: "Коллекция %{name}"

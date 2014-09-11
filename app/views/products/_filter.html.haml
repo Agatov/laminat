@@ -78,12 +78,11 @@
   .title
     Выберите текстуру из списка ниже
   .textures
-    - texture = Texture.first
 
     .texture{texture_id: 'empty'}
       .empty не выбрано
 
-    - 11.times do
+    - Texture.order(:id).each do |texture|
       .texture{texture_id: texture.id, image: texture.image_url(:preview)}
         = image_tag texture.image_url(:thumb)
         .name

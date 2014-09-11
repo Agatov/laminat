@@ -6,6 +6,8 @@ class CartProduct < ActiveRecord::Base
   before_update :calculate_price
 
   scope :by_session_id, lambda { |session_id| where(session_id: session_id)}
+  scope :deferred, where(deferred: true)
+  scope :not_deferred, where(deferred: 0)
 
   def calculate_price
     self.price = product.calculate_price(count)

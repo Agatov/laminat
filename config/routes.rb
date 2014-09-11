@@ -33,6 +33,7 @@ Laminat::Application.routes.draw do
   resources :cart_products do
     get :clear, on: :collection
     get :deferred, on: :collection
+    post :set_asside, on: :collection
   end
 
   resources :orders, only: :create

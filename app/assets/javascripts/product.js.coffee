@@ -37,6 +37,17 @@ $ ->
         )
     )
 
+  $('#set-asside').on 'click', ->
+    $.post(
+      '/cart_products/set_asside',
+      {
+        'product_id': $('input#product-id').val()
+      },
+      (data) =>
+        $(@).addClass('deferred')
+        $(@).text('Пробник заказан')
+    )
+
 
 window.calculate_total_price = ->
   total_price = parseInt ($('.meters-packs-form .fields .packs').val() * $('#pack-price').text())

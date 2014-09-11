@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :add_breadcrumbs
+  before_filter :set_cache_buster
+
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
 
   def session_id
     session[:session_id]
@@ -21,9 +28,14 @@ class ApplicationController < ActionController::Base
   helper_method :get_cart
 
   def recalculate_cart_session
-    @cart_products = CartProduct.by_session_id(session_id)
+    @cart_products = CartProduct.by_session_id(session_id).not_deferred
     session[:cart_products_count] = @cart_products.count
     session[:cart_products_sum] = @cart_products.map {|cp| cp.price }.sum
+
+    @deferred_products = CartProduct.by_session_id(session_id).deferred
+
+    session[:deferred_products_count] = @deferred_products.count
+    session[:deferred_products_ids] = @deferred_products.map {|dp| dp.id}
   end
 
 

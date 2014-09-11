@@ -3,8 +3,12 @@
   %br
   %span.bolder
     %number#cart-products-count
-      = session[:cart_products_count]
-    товаров на сумму
+      товаров:
+      = session[:cart_products_count] || 0
+
+      -#= Russian.p session[:cart_products_count].to_i, 'товар', 'товара', 'товаров'
+      -#= Russian.p 5, 'товар', 'товара', 'товаров'
+    на сумму
     %number#cart-products-sum
-      = session[:cart_products_sum]
+      = session[:cart_products_sum] || 0
     ₽

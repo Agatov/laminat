@@ -14,5 +14,5 @@
           = brand.about
 
         .buttons.clearfix
-          = link_to 'Колекций: 8', brand_collections_path(brand), class: :button
-          = link_to 'Товаров: 144', products_brand_path(brand), class: :button
+          = link_to "Коллекций: #{brand.collections_count.to_s}", brand_collections_path(brand), class: :button
+          = link_to "Товаров: #{brand.products_count.to_s}", products_brand_path(brand), class: :button

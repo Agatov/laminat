@@ -8,5 +8,6 @@
  *= require brands
  *= require collections
  *= require cart
+ *= require cart_deferred
  *= require filter
  */

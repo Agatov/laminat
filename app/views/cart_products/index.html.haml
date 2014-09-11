@@ -4,10 +4,12 @@
 
 .cart-navigation.clearfix
   %a.button.active{href: cart_products_path}
-    Товаров: 2
+    Товаров:
+    = session[:cart_products_count] || 0
 
   %a.button{href: deferred_cart_products_path}
-    Отложенные образцы: 6
+    Отложенные образцы:
+    = session[:deferred_products_count] || 0
 
 
 #cart
@@ -55,7 +57,7 @@
         ₽
 
 
-    %a.clear-cart-button{href: clear_cart_path}
+    %a.clear-cart-button{href: clear_cart_products_path}
       Очистить корзину
     .make-order-button
       Оформить заказ

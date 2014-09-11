@@ -36,7 +36,8 @@
         %li.cart-widget
           = render partial: 'cart/widget'
 
-      .breadcrumbs
-        = render_breadcrumbs separator: ' / ', class: :li
+      - unless params[:controller] == 'products' and params[:action] == 'index'
+        .breadcrumbs
+          = render_breadcrumbs separator: ' / ', class: :li
 
       = yield

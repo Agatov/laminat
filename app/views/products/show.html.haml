@@ -51,10 +51,11 @@
             %input#product-id{type: :hidden, name: 'cart_product[product_id]', value: @product.id.to_s}
 
           .buttons
-            .button#add-to-cart{type: :submit}
+            .button#add-to-cart
               Положить в корзину
 
-            .button
+
+            .button#set-asside
               Заказать пробник
 
 
@@ -65,19 +66,19 @@
           %td
             Артикул:
           %td
-            ABV2961
+            = @product.article
 
         %tr
           %td
             Размер:
           %td
-            2283x194x14
+            = "#{@product.length}x#{@product.width}x#{@product.height}"
 
         %tr
           %td
             В упаковке (м2):
           %td
-            2.62
+            = @product.meters_per_pack.to_s
 
         %tr
           %td
@@ -90,7 +91,8 @@
           %td
             Вес упаковки (кг):
           %td
-            25
+            -#= @product.weight.to_s
+            5,56
 
     .table
       %table
@@ -104,7 +106,8 @@
           %td
             Страна производства:
           %td
-            Сербия
+            -#= @product.country
+            Германия
 
         %tr
           %td
@@ -116,14 +119,14 @@
           %td
             Срок службы:
           %td
-            30 лет
+            = @product.lifetime
 
 
         %tr
           %td
-            Толщина доски (мм):
+            Объем упаковки(м3):
           %td
-            14
+            = @product.volume
 
         -#%tr
           %td

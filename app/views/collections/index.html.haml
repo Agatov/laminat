@@ -9,23 +9,27 @@
         = image_tag collection.logo_url(:thumb)
       .content
         .top-row
-          = link_to collection.name, brand_collection_path(@brand, collection)
+          = link_to collection.name, products_brand_collection_path(@brand, collection)
 
         %ul.collection-params
           %li
             Страна-производитель:
-            %span.bolder Китай
+            %span.bolder
+              -#= collection.country
+              Германия
 
           %li
             Класс:
-            %span.bolder 32
+            %span.bolder
+              = collection.rank.to_s
 
           %li
             Размеры:
-            %span.bolder 142x56x12
+            %span.bolder
+              = collection.sizes
 
 
-          %li
+          -#%li
             Фаска
             %span.bolder 4x
 
@@ -33,4 +37,4 @@
           = collection.about
 
         .buttons.clearfix
-          = link_to 'Товаров 144', products_brand_collection_path(@brand, collection), class: :button
+          = link_to "Товаров #{collection.products_count.to_s}", products_brand_collection_path(@brand, collection), class: :button

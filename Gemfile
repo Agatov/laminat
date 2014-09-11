@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.0'
 
 gem 'haml-rails'
 
+gem 'thin'
+
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -57,3 +59,5 @@ gem 'carrierwave'
 gem 'country_select'
 
 gem 'meta-tags'
+
+gem 'russian'

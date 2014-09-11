@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
-  belongs_to :brand
-  belongs_to :collection
+  belongs_to :brand, counter_cache: true
+  belongs_to :collection, counter_cache: true
 
   belongs_to :texture
   belongs_to :color
@@ -26,7 +26,7 @@ class Product < ActiveRecord::Base
   end
 
   def calculate_price(count)
-    price * count
+    (price * count) if count
   end
 
 end

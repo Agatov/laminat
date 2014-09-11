@@ -3,7 +3,7 @@ class CartProductsController < ApplicationController
   protect_from_forgery :except => [:create, :update, :destroy, :clear]
 
   def index
-    @cart_products = CartProduct.by_session_id(session_id)
+    @cart_products = CartProduct.by_session_id(session_id).not_deferred
   end
 
   def deferred
@@ -33,8 +33,27 @@ class CartProductsController < ApplicationController
         }
       }
     end
+  end
 
+  def set_asside
+    @cart_product = CartProduct.find_by_session_id_and_product_id(session_id, params[:product_id])
 
+    unless @cart_product
+      @cart_product = CartProduct.new(product_id: params[:product_id], deferred: true)
+      @cart_product.session_id = session_id
+    end
+
+    @cart_product.save
+    recalculate_cart_session
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.json {
+        render json: {
+            status: :ok
+        }
+      }
+    end
   end
 
   def update
@@ -56,7 +75,9 @@ class CartProductsController < ApplicationController
   end
 
   def clear
+    CartProduct.by_session_id(session_id).destroy_all
     recalculate_cart_session
+    redirect_to :back
   end
 
   def destroy

@@ -13,7 +13,7 @@ class CartProductsController < ApplicationController
   def create
     @cart_product = CartProduct.find_by_session_id_and_product_id(session_id, params[:cart_product][:product_id])
 
-    if @cart_product
+    if @cart_product and !@cart_product.deferred
       @cart_product.count += params[:cart_product][:count].to_i
     else
       @cart_product = CartProduct.new cart_product_params

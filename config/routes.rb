@@ -23,6 +23,7 @@ Laminat::Application.routes.draw do
 
   resources :products, only: [:index, :show] do
     get :by_parameters, on: :collection
+    get :by_article, on: :collection
   end
 
   resource :cart, only: [:show, :create, :update], controller: 'cart' do

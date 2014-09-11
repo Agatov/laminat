@@ -43,3 +43,9 @@ $ ->
 
   $('#color-picker').on 'change', ->
     $('input[name=color_id]').val $(@).val()
+
+
+  $("#show-article-modal").on 'click', ->
+    $('.modal-overlay').show()
+    $('#article-modal').show()
+

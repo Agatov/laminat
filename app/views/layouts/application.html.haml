@@ -12,6 +12,7 @@
 
   %body
     .modal-overlay
+    = render partial: 'products/article_modal'
 
     .wrapper
 
@@ -31,7 +32,7 @@
           = link_to 'Выбор по параметрам', by_parameters_products_path
         %li{class: (params[:controller] == 'brands' or params[:controller] == 'collections') ? 'active' : ''}
           = link_to 'Производители', brands_path
-        -#%li
+        %li#show-article-modal
           %a{href: '#'} По артикулу
         %li.cart-widget
           = render partial: 'cart/widget'
@@ -41,3 +42,12 @@
           = render_breadcrumbs separator: ' / ', class: :li
 
       = yield
+
+      .footer
+        .separator
+        .content
+          ООО «Ламинат и прочие радости жизни»
+          %br
+          2013-2014
+          %br
+          Все права защищены

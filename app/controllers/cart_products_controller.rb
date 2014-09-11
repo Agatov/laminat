@@ -3,11 +3,11 @@ class CartProductsController < ApplicationController
   protect_from_forgery :except => [:create, :update, :destroy, :clear]
 
   def index
-    @cart_products = CartProduct.by_session_id(session_id).not_deferred
+    @cart_products = CartProduct.where(deferred: 0).by_session_id(session_id)
   end
 
   def deferred
-    @cart_products = CartProduct.by_session_id(session_id).deferred
+    @cart_products = CartProduct.where(deferred: true).by_session_id(session_id)
   end
 
   def create

@@ -1,29 +1,36 @@
-%ul.products.clearfix
-
-  - i = 0
-  - products.each do |product|
-    - i += 1
-    - if i == 5
-      %li.separator
-      - i = 1
 
 
-    %li
-      .image
-        .overlay
-        %a{href: product_path(product), target: '_blank'}
-          .open-new-window
-        = image_tag product.image_url(:thumb)
-      .name
-        = link_to product.full_name, product_path(product)
+- if products.count > 0
+  %ul.products.clearfix
 
-      .price.clearfix
-        Специальная цена:
-        %span.value.green
-          = "#{product.sale_price.to_s}₽"
+    - i = 0
+    - products.each do |product|
+      - i += 1
+      - if i == 5
+        %li.separator
+        - i = 1
 
 
-      .price.clearfix
-        Розничная цена:
-        %span.value.orange
-          = "#{product.price.to_s}₽"
+      %li
+        .image
+          .overlay
+          %a{href: product_path(product), target: '_blank'}
+            .open-new-window
+          = image_tag product.image_url(:thumb)
+        .name
+          = link_to product.full_name, product_path(product)
+
+        .price.clearfix
+          Специальная цена:
+          %span.value.green
+            = "#{product.sale_price.to_s}₽"
+
+
+        .price.clearfix
+          Розничная цена:
+          %span.value.orange
+            = "#{product.price.to_s}₽"
+
+- else
+  .not-found
+    По указанным вами параметрам товаров не найдено

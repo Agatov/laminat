@@ -54,9 +54,12 @@
             .button#add-to-cart
               Положить в корзину
 
-
-            .button#set-asside
-              Заказать пробник
+            - if session[:deferred_products_ids] and session[:deferred_products_ids].include?(@product.id)
+              .button.deferred
+                Пробник заказан
+            - else
+              .button#set-asside
+                Заказать пробник
 
 
   .tables.clearfix

@@ -1,0 +1,5 @@
+.page-title
+  Поиск по артикулу
+  = "\"#{params[:article]}\""
+
+= render partial: 'products/list', locals: {products: @products}

@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
     #add_breadcrumb 'Выбор ламината по параметрам'
   end
 
+  def by_article
+    @products = Product.where(article: params[:article])
+  end
+
   def show
     @product = Product.find params[:id]
 

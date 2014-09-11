@@ -12,55 +12,61 @@
     = session[:deferred_products_count] || 0
 
 
-#cart
+- if @cart_products.count > 0
+  #cart
 
-  %table.cart-table
-    - @cart_products.each do |cart_product|
-      %tr{cart_product_id: cart_product.id, meters_per_pack: cart_product.product.meters_per_pack}
-        %td
-          = image_tag cart_product.product.image_url(:thumb)
-        %td
-          = link_to cart_product.product.full_name, product_path(cart_product.product)
-        %td
-          %input.ololo{type: :text, value: cart_product.count.to_s}
-          &nbsp; уп
-          %br
-          .align-left{style: 'text-align: left; padding-left: 22px'}
-            %number.meters
-              - if cart_product.product.meters_per_pack
-                = sprintf("%.2f", cart_product.count * cart_product.product.meters_per_pack).to_f
-            м2
-        %td
-          Стоимость (уп):
-          .value
-            %number
-              = "#{cart_product.product.price.to_s}"
-            ₽
+    %table.cart-table
+      - @cart_products.each do |cart_product|
+        %tr{cart_product_id: cart_product.id, meters_per_pack: cart_product.product.meters_per_pack}
+          %td
+            = image_tag cart_product.product.image_url(:thumb)
+          %td
+            = link_to cart_product.product.full_name, product_path(cart_product.product)
+          %td
+            %input.ololo{type: :text, value: cart_product.count.to_s}
+            &nbsp; уп
+            %br
+            .align-left{style: 'text-align: left; padding-left: 22px'}
+              %number.meters
+                - if cart_product.product.meters_per_pack
+                  = sprintf("%.2f", cart_product.count * cart_product.product.meters_per_pack).to_f
+              м2
+          %td
+            Стоимость (уп):
+            .value
+              %number
+                = "#{cart_product.product.price.to_s}"
+              ₽
 
-        %td.cart-product-sum
-          Сумма
-          .value
-            %number
-              = "#{cart_product.price}"
-            ₽
+          %td.cart-product-sum
+            Сумма
+            .value
+              %number
+                = "#{cart_product.price}"
+              ₽
 
-        %td
-          = link_to '', cart_product_path(cart_product), class: 'remove-cart-row-icon', method: :delete, confirm: 'Вы уверены?'
-
-
-  .bottom
-    .total-price
-      Итого:
-      %span.value
-        %number
-          = "#{@cart_products.map {|cp| cp.price }.sum}"
-        ₽
+          %td
+            = link_to '', cart_product_path(cart_product), class: 'remove-cart-row-icon', method: :delete, confirm: 'Вы уверены?'
 
 
-    %a.clear-cart-button{href: clear_cart_products_path}
-      Очистить корзину
-    .make-order-button
-      Оформить заказ
+    .bottom
+      .total-price
+        Итого:
+        %span.value
+          %number
+            = "#{@cart_products.map {|cp| cp.price }.sum}"
+          ₽
+
+
+      %a.clear-cart-button{href: clear_cart_products_path}
+        Очистить корзину
+      .make-order-button
+        Оформить заказ
+
+
+- else
+  .not-found
+    Ваша корзина пуста
 
 
 

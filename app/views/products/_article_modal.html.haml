@@ -1,0 +1,7 @@
+#article-modal
+  .title
+    Введите артикул товара в поле ниже
+
+  %form{action: by_article_products_path}
+    %input{type: :text, name: :article, placeholder: 'Введите артикул'}
+    %input.button{type: :submit, value: 'Искать по артикулу'}

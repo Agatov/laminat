@@ -28,14 +28,14 @@ class ApplicationController < ActionController::Base
   helper_method :get_cart
 
   def recalculate_cart_session
-    @cart_products = CartProduct.by_session_id(session_id).not_deferred
-    session[:cart_products_count] = @cart_products.count
-    session[:cart_products_sum] = @cart_products.map {|cp| cp.price }.sum
+    cart_products = CartProduct.where(deferred: 0).by_session_id(session_id)
+    session[:cart_products_count] = cart_products.count
+    session[:cart_products_sum] = cart_products.map {|cp| cp.price }.sum
 
-    @deferred_products = CartProduct.by_session_id(session_id).deferred
+    deferred_products = CartProduct.where(deferred: true).by_session_id(session_id)
 
-    session[:deferred_products_count] = @deferred_products.count
-    session[:deferred_products_ids] = @deferred_products.map {|dp| dp.id}
+    session[:deferred_products_count] = deferred_products.count
+    session[:deferred_products_ids] = deferred_products.map {|dp| dp.product.id}
   end
 
 

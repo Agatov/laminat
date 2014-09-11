@@ -42,6 +42,6 @@ class ApplicationController < ActionController::Base
   private
 
   def add_breadcrumbs
-    add_breadcrumb 'Главная', root_path
+    add_breadcrumb 'Main page', root_path
   end
 end

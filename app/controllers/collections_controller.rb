@@ -5,16 +5,17 @@ class CollectionsController < ApplicationController
   def index
     @collections = @brand.collections
 
-    add_breadcrumb 'Производители', brands_path
-    add_breadcrumb "Список коллекций #{@brand.name}"
+    add_breadcrumb 'Brands', brands_path
+    #add_breadcrumb "Список коллекций #{@brand.name}"
+    add_breadcrumb "Collections List #{@brand.name}"
   end
 
   def products
     @collection = Collection.find params[:id]
     @products = @collection.products
 
-    add_breadcrumb 'Производители', brands_path
-    add_breadcrumb "Коллекции #{@brand.name}", brand_collections_path(@brand)
+    add_breadcrumb 'Brands', brands_path
+    add_breadcrumb "Collections #{@brand.name}", brand_collections_path(@brand)
     add_breadcrumb @collection.name, products_brand_collection_path(@brand, @collection)
   end
 

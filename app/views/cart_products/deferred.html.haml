@@ -1,0 +1,35 @@
+.page-title
+  Оформление заказа
+
+
+.cart-navigation.clearfix
+  %a.button{href: cart_products_path}
+    Товаров:
+    = session[:cart_products_count] || 0
+
+  %a.button.active{href: deferred_cart_products_path}
+    Отложенные образцы:
+    = session[:deferred_products_count] || 0
+
+
+
+%ul.deferred-products.clearfix
+
+  - i = 0
+  - @cart_products.each do |cart_product|
+    - i += 1
+    - if i == 5
+      %li.separator
+      - i = 1
+
+
+    %li
+      .image
+        .overlay
+        %a.open-new-window{href: product_path(cart_product.product), target: '_blank'}
+        %a.remove-deferred-product{href: product_path(cart_product.product), target: '_blank'}
+
+        = image_tag cart_product.product.image_url(:thumb)
+      .name
+        = link_to cart_product.product.full_name, product_path(cart_product.product)
+

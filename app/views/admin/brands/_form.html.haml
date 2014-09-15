@@ -2,6 +2,6 @@
   = f.input :name
   = image_tag brand.logo_url(:thumb) if brand.logo?
   = f.input :logo
-  = f.input :country
+  = f.input :country, as: :string
   = f.input :about
   = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

@@ -14,7 +14,7 @@ ru:
       brand:
         name: "Название"
         logo: "Логотип"
-        country: "Страна производство"
+        country: "Страна производства"
         about: "Короткое описание"
         description: "Полное описание"
       collection:
@@ -42,4 +42,6 @@ ru:
         lifetime: "Срок жизни (лет)"
         country: "Страна производства"
         about: "Короткое описание"
+        number_per_pack: "Штук в упаковке"
+        lock_type: "Тип замка"
 

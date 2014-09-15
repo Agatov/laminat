@@ -9,12 +9,14 @@
   = f.input :price
   = f.input :sale_price
   = f.input :meters_per_pack
+  = f.input :number_per_pack
   = f.input :length
   = f.input :width
   = f.input :height
   = f.input :volume
   = f.input :lifetime
-  = f.input :country
+  = f.input :lock_type
+  = f.input :country, as: :string
   = f.input :about
 
   = f.submit 'Готово', class: [:btn, 'btn-lg', 'btn-success']

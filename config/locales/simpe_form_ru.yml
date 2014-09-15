@@ -44,4 +44,5 @@ ru:
         about: "Короткое описание"
         number_per_pack: "Штук в упаковке"
         lock_type: "Тип замка"
+        display_on_main_page: "Показывать на главной"
 

@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.order(:id)
+
+    # Протестировать перед деплоем
+    #@products = Product.where(display_on_main_page: true).order(:id)
   end
 
   def by_parameters

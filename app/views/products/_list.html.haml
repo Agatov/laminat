@@ -10,8 +10,7 @@
         %li.separator
         - i = 1
 
-
-      %li
+      %li{style: (i == 4) ? 'margin-right: 0px' : ''}
         .image
           .overlay
           %a{href: product_path(product), target: '_blank'}

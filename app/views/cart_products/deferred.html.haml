@@ -24,7 +24,7 @@
         - i = 1
 
 
-      %li
+      %li{style: (i == 4) ? 'margin-right: 0px' : ''}
         .image
           .overlay
           %a.open-new-window{href: product_path(cart_product.product), target: '_blank'}

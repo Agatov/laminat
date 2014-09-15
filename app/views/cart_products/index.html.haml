@@ -57,6 +57,15 @@
             = "#{@cart_products.map {|cp| cp.price }.sum}"
           ₽
 
+        %br
+
+        Стомость доставки:
+        %span.value
+          0 ₽
+
+
+
+
 
       %a.clear-cart-button{href: clear_cart_products_path}
         Очистить корзину

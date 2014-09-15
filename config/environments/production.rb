@@ -59,6 +59,8 @@ Laminat::Application.configure do
 
   config.assets.precompile += %w( admin.css admin.js )
 
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)\z/
+
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )

@@ -22,7 +22,8 @@ class CartProduct < ActiveRecord::Base
     order.order_products.build(
         product_id: product_id,
         count: count,
-        sum: price
+        sum: price,
+        deferred: deferred
     )
   end
 end

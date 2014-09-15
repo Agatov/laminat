@@ -28,13 +28,28 @@
         .image
           .overlay
           %a.open-new-window{href: product_path(cart_product.product), target: '_blank'}
-          %a.remove-deferred-product{href: product_path(cart_product.product), target: '_blank'}
+          = link_to '', cart_product_path(cart_product), method: :delete, class: 'remove-deferred-product'
 
           = image_tag cart_product.product.image_url(:thumb)
         .name
           = link_to cart_product.product.full_name, product_path(cart_product.product)
 
+
+  .cart-bottom
+    .total-price
+      Стомость доставки:
+      %span.value
+        0 ₽
+
+    %a.clear-cart-button{href: clear_cart_products_path}
+      Очистить корзину
+    .make-order-button
+      Оформить заказ
+
+
 - else
   .not-found
     Отложенных товаров не найдено
 
+
+= render partial: 'cart_products/cart_modal'

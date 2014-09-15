@@ -25,6 +25,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    @last_viewed_products = Product.find last_viewed_products.uniq.last(8)
+
+    last_viewed_products << @product.id
 
     add_breadcrumb I18n.t('app.breadcrumbs.brands'), brands_path
     add_breadcrumb I18n.t('app.breadcrumbs.collections_list', brand_name: @product.brand.name), brand_collections_path(@product.brand)

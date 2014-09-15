@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     session[:session_id]
   end
 
+  def last_viewed_products
+    return session[:last_viewed_products] if session[:last_viewed_products]
+    session[:last_viewed_products] = []
+    session[:last_viewed_products]
+  end
+
   def get_cart
     return session[:cart] if session[:cart]
     Cart.new

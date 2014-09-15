@@ -135,3 +135,9 @@
             Размер
           %td
             2283x194x14
+
+
+- if @last_viewed_products
+  .page-title{style: 'margin-top: 50px;'}
+    Последние просмотренные товары
+  = render partial: 'products/list', locals: {products: @last_viewed_products}

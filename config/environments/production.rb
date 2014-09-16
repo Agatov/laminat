@@ -58,6 +58,7 @@ Laminat::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   config.assets.precompile += %w( admin.css admin.js )
+  config.assets.precompile += %w( panel.css panel.js )
 
   config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)\z/
 

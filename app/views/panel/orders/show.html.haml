@@ -1,0 +1,81 @@
+%ol.breadcrumb
+  %li
+    = link_to 'Все заказы', panel_orders_path
+  %li.active
+    = "Заказ №#{@order.id.to_s}"
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Имя
+      %th
+        Телефон
+      %th
+        Адрес доставки
+      %th
+  %tbody
+    %tr
+      %td
+        = @order.name
+
+      %td
+        = @order.phone
+
+      %td
+        = @order.content
+
+
+
+%legend
+  Детали заказа
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Артикул
+      %th
+        Производитель
+      %th
+        Коллекция
+      %th
+        Название
+      %th
+        Количество
+
+      %th
+        Цена (шт)
+
+      %th
+        Стоимость
+
+      -#%th
+        = '...'
+  %tbody
+    - @order.order_products.each do |order_product|
+      %tr
+        %td
+          = order_product.product.article
+        %td
+          = order_product.product.brand.name
+        %td
+          = order_product.product.collection.name
+        %td
+          = order_product.product.name
+
+        - if order_product.count.nil?
+          %td{colspan: 3, align: :center}
+            пробник
+
+        - else
+
+          %td
+            = order_product.count.to_s
+          %td
+            = order_product.product.price.to_s
+          %td
+            = order_product.sum.to_s
+

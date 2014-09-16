@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'panel', :media => 'all'
+    = javascript_include_tag 'panel'
+
+
+    %title
+      Панель заказов
+
+  %body
+    .container{style: 'padding-top: 50px;'}
+      -#%ol.breadcrumb
+        = render_breadcrumbs separator: ' / ', class: :li
+
+      = yield

@@ -14,6 +14,10 @@ Laminat::Application.routes.draw do
     resources :colors
   end
 
+  namespace :panel do
+    resources :orders
+  end
+
   resources :brands, only: [:index, :show] do
     get :products, on: :member
     resources :collections, only: [:index, :show] do

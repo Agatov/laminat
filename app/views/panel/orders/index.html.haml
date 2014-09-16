@@ -1,0 +1,33 @@
+%legend
+  Список заказов
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        ID
+      %th
+        Дата
+      %th
+        Имя
+      %th
+        Телефон
+      %th
+        Сумма
+      %th
+        = '...'
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td
+          = order.id.to_s
+        %td
+          = order.created_at.strftime('%d.%m.%Y')
+        %td
+          = order.name
+        %td
+          = order.phone
+        %td
+          = (order.order_products.map {|op| op.sum}).sum
+        %td
+          = link_to 'подробнее', panel_order_path(order)

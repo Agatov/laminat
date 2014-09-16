@@ -12,7 +12,7 @@
         Имя
       %th
         Телефон
-      %th
+      -#%th
         Сумма
       %th
         = '...'
@@ -27,7 +27,7 @@
           = order.name
         %td
           = order.phone
-        %td
+        -#%td
           = (order.order_products.map {|op| op.sum}).sum
         %td
           = link_to 'подробнее', panel_order_path(order)

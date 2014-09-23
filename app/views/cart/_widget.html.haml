@@ -4,7 +4,10 @@
   %span.bolder
     %number#cart-products-count
       товаров:
-      = session[:cart_products_count] || 0
+      - if session[:cart_products_count] and session[:deferred_products_count]
+        = (session[:cart_products_count] + session[:deferred_products_count]).to_s
+      - else
+        0
 
       -#= Russian.p session[:cart_products_count].to_i, 'товар', 'товара', 'товаров'
       -#= Russian.p 5, 'товар', 'товара', 'товаров'

@@ -8,7 +8,7 @@
       .content
         .top-row
           = link_to brand.name, brand_collections_path(brand)
-          Германия
+          = @brand.country
 
         .about
           = brand.about

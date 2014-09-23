@@ -33,11 +33,39 @@ $ ->
 #    reachGoal 'new_order'
 
 
+  $('#send-call-form').on 'click', ->
+    username = $('input[name=name]')
+    phone = $('input[name=phone]')
+
+    shake_fields = []
+
+    if username.val() < 2
+      shake_fields.push username
+
+    if phone.val() < 5
+      shake_fields.push phone
+
+    if shake_fields.length > 0
+      shake_field(field) for field in shake_fields
+      return false
+
+#    $.post(
+#      '/orders.json',
+#    {
+#      'order[name]': username.val(),
+#      'order[phone]': phone.val()
+#    },
+#    (data) =>
+#
+#    )
+
+    show_thank_you()
+
 
 
 window.show_thank_you = ->
 
-  form_block = $('#cart-modal .form')
+  form_block = $('.modal .form')
 
   form_block.animate({opacity: 0}, 1000, ->
     form_block.hide()

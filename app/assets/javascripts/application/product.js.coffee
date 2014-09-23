@@ -39,11 +39,24 @@ $ ->
 
   $('#set-asside').on 'click', ->
     $.post(
-      '/cart_products/set_asside',
+      '/cart_products/set_asside.json',
       {
         'product_id': $('input#product-id').val()
       },
       (data) =>
+
+        console.log data
+
+        # "Мигаем виджетом корзины"
+        $(".cart-widget").animate({'opacity': '0.2'}, 400, ->
+
+          #Обновляем данные в виджете сверху
+          $("#cart-products-count").text parseInt(data.count)
+          $("#cart-products-sum").text parseInt(data.sum)
+
+          $(".cart-widget").animate({'opacity': '1'}, 400)
+        )
+
         $(@).addClass('deferred')
         $(@).text('Пробник заказан')
     )

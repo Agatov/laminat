@@ -13,6 +13,7 @@
       img
         width: 380px
         height: 240px
+        cursor: pointer
 
     .widget
       float: right
@@ -53,11 +54,12 @@
 
 
         .annotation
-          margin-top: 50px
+          padding: 10px
           font-family: 'HelveticaNeue-Light'
-          font-size: 12px
+          font-size: 14px
           color: $soft_font_color
-          line-height: 15px
+          line-height: 18px
+          border: 1px dashed $orange_color
 
 
 
@@ -87,20 +89,23 @@
             color: $font_color
 
         .buttons
-          margin-top: 35px
+          margin-top: 40px
 
           .button
-            margin-bottom: 20px
+            margin-bottom: 10px
             width: 220px
             height: 50px
             line-height: 50px
             text-align: center
             background: $blue_color
             color: #fff
-            font-family: 'HelveticaNeue-Regular'
+            font-family: 'HelveticaNeue-Medium'
             font-size: 14px
             cursor: pointer
             border: none
+
+            &.orange
+              background: $orange_color
 
             &:hover
               background: #509CF2

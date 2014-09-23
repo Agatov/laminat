@@ -28,7 +28,7 @@ class CartProductsController < ApplicationController
       format.html {redirect_to :back}
       format.json {
         render json: {
-          count: session[:cart_products_count],
+          count: session[:cart_products_count] + session[:deferred_products_count],
           sum: session[:cart_products_sum]
         }
       }
@@ -50,7 +50,8 @@ class CartProductsController < ApplicationController
       format.html {redirect_to :back}
       format.json {
         render json: {
-            status: :ok
+            count: session[:cart_products_count] + session[:deferred_products_count],
+            sum: session[:cart_products_sum]
         }
       }
     end
@@ -67,7 +68,7 @@ class CartProductsController < ApplicationController
       format.json {
         render json: {
           price: @cart_product.price,
-          count: session[:cart_products_count],
+          count: session[:cart_products_count] + session[:deferred_products_count],
           sum: session[:cart_products_sum]
         }
       }

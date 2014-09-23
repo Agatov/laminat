@@ -7,7 +7,8 @@
 #product
   .widget-and-image.clearfix
     .image
-      = image_tag @product.image_url(:preview)
+      %a{href: @product.image_url, 'data-lightbox' => 'item'}
+        = image_tag @product.image_url(:preview)
     .widget
       .left
         .price.clearfix
@@ -56,10 +57,10 @@
 
             - if session[:deferred_products_ids] and session[:deferred_products_ids].include?(@product.id)
               .button.deferred
-                Пробник заказан
+                Образец заказан
             - else
-              .button#set-asside
-                Заказать пробник
+              .button#set-asside.orange
+                Заказать образец
 
 
   .tables.clearfix

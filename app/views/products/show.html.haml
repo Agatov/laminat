@@ -88,15 +88,21 @@
           %td
             В упаковке (шт):
           %td
-            6
+            = @product.number_per_pack.to_s
 
 
         %tr
           %td
             Вес упаковки (кг):
           %td
-            -#= @product.weight.to_s
-            5,56
+            = @product.weight.to_s
+
+        %tr
+          %td
+            Объем упаковки(м3):
+          %td
+            = @product.volume
+
 
     .table
       %table
@@ -116,7 +122,7 @@
           %td
             Замок:
           %td
-            AVERLOC
+            = @product.lock_type
 
         %tr
           %td
@@ -124,18 +130,17 @@
           %td
             = @product.lifetime
 
+        %tr
+          %td
+            Фаска
+          %td
+            = @product.facet
 
         %tr
           %td
-            Объем упаковки(м3):
+            Тиснение
           %td
-            = @product.volume
-
-        -#%tr
-          %td
-            Размер
-          %td
-            2283x194x14
+            = @product.stamping
 
 
 - if @last_viewed_products

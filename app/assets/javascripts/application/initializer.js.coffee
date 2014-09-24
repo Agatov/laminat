@@ -5,6 +5,7 @@ $ ->
     $('#filter-modal').hide()
     $('#article-modal').hide()
     $('#get-call-modal').hide()
+    $('#textures-modal').hide()
     $('.modal-overlay').hide()
 
   $('.order-call').on 'click', ->

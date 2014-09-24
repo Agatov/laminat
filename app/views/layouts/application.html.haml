@@ -8,7 +8,7 @@
 
     -#= set_meta_tags site: 'My Site'
     %title
-      Ламинат
+      Пол 21 века | Интернет-магазин напольных покрытий
 
   %body
     .modal-overlay
@@ -19,12 +19,13 @@
 
       .topbar
         .logo
-          Ламинат & CO
+          %a{href: root_path}
+            = image_tag 'logo.png', width: 200
 
         .order-call
           Заказать звонок
         .phone
-          (495) 720 20 20
+          (495) 532 64 38
           .small
             ежедневно с 9:00 до 21:00
 
@@ -51,7 +52,7 @@
       .footer
         .separator
         .content
-          ООО «Ламинат и прочие радости жизни»
+          ООО «Пол 21 века»
           %br
           2013-2014
           %br

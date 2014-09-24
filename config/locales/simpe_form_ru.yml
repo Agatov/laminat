@@ -41,6 +41,8 @@ ru:
         weight: "Вес упаковки (кг)"
         lifetime: "Срок жизни (лет)"
         country: "Страна производства"
+        facet: "Фаска"
+        stamping: "Тиснение"
         about: "Короткое описание"
         number_per_pack: "Штук в упаковке"
         lock_type: "Тип замка"

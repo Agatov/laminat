@@ -1,3 +1,14 @@
--#= render partial: 'products/filter'
+
 = image_tag 'actions/1.jpg', width: 940
+
+.section-title Самые выгодные товары
 = render partial: 'products/list', locals: {products: @products}
+
+
+.section-title Наши партнеры
+
+%ul.brands-list.clearfix
+  - Brand.order(:name).each do |brand|
+    %li
+      %a{href: brand_collections_path(brand)}
+        = image_tag brand.logo_url(:thumb)

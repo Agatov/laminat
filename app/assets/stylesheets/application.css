@@ -10,5 +10,6 @@
  *= require cart
  *= require cart_deferred
  *= require filter
+ *= require map
  *= require lightbox
  */

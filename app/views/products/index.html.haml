@@ -1,7 +1,7 @@
 
 = image_tag 'actions/1.jpg', width: 940
 
-.section-title Самые выгодные товары
+.section-title Выгодная цена
 = render partial: 'products/list', locals: {products: @products}
 
 
@@ -12,3 +12,8 @@
     %li
       %a{href: brand_collections_path(brand)}
         = image_tag brand.logo_url(:thumb)
+
+
+.section-title
+  Наш магазин находится по адресу:
+#map

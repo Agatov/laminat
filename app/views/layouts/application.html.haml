@@ -3,6 +3,7 @@
   %head
     = csrf_meta_tags
     = stylesheet_link_tag    'application', :media => 'all'
+    = javascript_include_tag 'http://api-maps.yandex.ru/2.1/?lang=ru_RU'
     = javascript_include_tag 'application'
 
 
@@ -22,12 +23,13 @@
           %a{href: root_path}
             = image_tag 'logo.png', width: 200
 
-        .order-call
-          Заказать звонок
+        .descriptor
+          Продажа ламината с доставкой по Москве и МО
+          %br
+          Работаем без выходных и праздников до 21:00
         .phone
           (495) 532 64 38
-          .small
-            ежедневно с 9:00 до 21:00
+          .order-call Заказать звонок
 
 
       %ul.navbar
@@ -57,3 +59,5 @@
           2013-2014
           %br
           Все права защищены
+
+    = render partial: 'layouts/metrika'

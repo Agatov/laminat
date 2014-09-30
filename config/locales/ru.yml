@@ -20,3 +20,12 @@ ru:
       brands: 'Производители'
       collections_list: "Список коллекций %{brand_name}"
       collection_name: "Коллекция %{name}"
+
+
+  project:
+    new-order-title: "Новая заказ"
+    get-call-order: "Новая заявка на звонок"
+
+  panel:
+    order:
+      link: "http://pol21veka.ru/panel/orders/%{id}"

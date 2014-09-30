@@ -41,6 +41,8 @@ Laminat::Application.routes.draw do
     post :set_asside, on: :collection
   end
 
-  resources :orders, only: :create
+  resources :orders, only: :create do
+    post :fast, on: :collection
+  end
 
 end

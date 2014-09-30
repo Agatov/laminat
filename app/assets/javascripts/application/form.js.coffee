@@ -52,15 +52,15 @@ $ ->
       shake_field(field) for field in shake_fields
       return false
 
-#    $.post(
-#      '/orders.json',
-#    {
-#      'order[name]': username.val(),
-#      'order[phone]': phone.val()
-#    },
-#    (data) =>
-#
-#    )
+    $.post(
+      '/orders/fast.json',
+    {
+      'order[name]': username.val(),
+      'order[phone]': phone.val()
+    },
+    (data) =>
+
+    )
 
     show_thank_you()
 

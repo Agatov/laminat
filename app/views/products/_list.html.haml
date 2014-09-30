@@ -20,13 +20,13 @@
           = link_to product.full_name, product_path(product)
 
         .price.clearfix
-          Специальная цена:
+          Стоимость за метр:
           %span.value.green
-            = "#{product.sale_price.to_s}₽"
+            = "#{product.price_per_meter.to_s}₽"
 
 
         .price.clearfix
-          Розничная цена:
+          Стоимость упаковки:
           %span.value.orange
             = "#{product.price.to_s}₽"
 

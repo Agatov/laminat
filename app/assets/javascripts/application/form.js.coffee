@@ -1,10 +1,11 @@
 $ ->
 
   $('#send-form').on 'click', ->
+    form = $(@).parents('.form')
 
-    username = $('input[name=name]')
-    phone = $('input[name=phone]')
-    content = $('textarea[name=content]')
+    username = form.find('input[name=name]')
+    phone = form.find('input[name=phone]')
+    content = form.find('textarea[name=content]')
 
     shake_fields = []
 
@@ -34,8 +35,10 @@ $ ->
 
 
   $('#send-call-form').on 'click', ->
-    username = $('input[name=name]')
-    phone = $('input[name=phone]')
+    form = $(@).parents('.form')
+
+    username = form.find('input[name=name]')
+    phone = form.find('input[name=phone]')
 
     shake_fields = []
 

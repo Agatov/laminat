@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @last_viewed_products = Product.find last_viewed_products.uniq.last(8)
+    -#@last_viewed_products = Product.find last_viewed_products.uniq.last(8)
 
     last_viewed_products << @product.id
 
